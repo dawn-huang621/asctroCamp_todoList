@@ -5,6 +5,9 @@ const isFinished = document.querySelector("li input")
 const ul = document.querySelector("ul")
 const edit = document.querySelector(".edit-btn")
 
+const rightMouse = document.querySelector(".context-menu")
+const reliveList = document.querySelector(".relive-list")
+
 const data = JSON.parse(localStorage.getItem("todos")) || []
 
 showList (data)
@@ -95,4 +98,17 @@ ul.addEventListener("click",(e)=>{
     data.forEach(item =>{
         item.finished
     })
+})
+
+
+
+document.addEventListener("contextmenu",(e)=>{
+    e.preventDefault()
+    rightMouse.style.display = "block"
+    rightMouse.style.left= e.pageX + "px"
+    rightMouse.style.top= e.pageY + "px"
+})
+reliveList.addEventListener("click",(e)=>{
+    // e.stopPropagation()
+    console.log(e.target)
 })
