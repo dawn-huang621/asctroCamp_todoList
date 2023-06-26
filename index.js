@@ -7,7 +7,6 @@ const edit = document.querySelector(".edit-btn")
 
 const data = JSON.parse(localStorage.getItem("todos")) || []
 
-// console.log(data)
 showList (data)
 
 addBtn.addEventListener("click",(e)=>{
@@ -26,7 +25,6 @@ addBtn.addEventListener("click",(e)=>{
 })
 
 function showList (data) {
-    // console.log(data)
     ul.innerHTML = ""
     if(data){
         let str = ''
@@ -60,10 +58,6 @@ function showList (data) {
 
 
 ul.addEventListener("click",(e)=>{
-    // console.log(e.target)
-    // console.log(e.target.parentNode)
-    // console.log(e.target.parentNode.className)
-    // console.log(data)
     
     if(e.target.className.includes("is-checked")){
         data.forEach((item, index)=>{
@@ -78,22 +72,6 @@ ul.addEventListener("click",(e)=>{
             }
         })
     }
-    // data.forEach((list, index) =>{
-    //     let count = 0
-    //     id = Number(e.target.parentNode.className)
-    //     if(index === id){
-    //         list.finished = !list.finished
-    //         console.log(list.finished)
-    //         if(list.finished){
-    //             e.target.parentNode.style['text-decoration'] = 'line-through'
-    //         } else {
-    //             e.target.parentNode.style['text-decoration'] = 'none'
-    //         }
-    //         localStorage.setItem("todos", JSON.stringify(data))
-    //         showList (data)
-    //     }
-    // })
-    
     if(e.target.className.includes("del-btn")){
         if(index === Number(e.target.parentNode.parentNode.className)){
             data.splice(index, 1)
